@@ -57,7 +57,8 @@ onMounted(() => {
                 v-for="todo in todoStore.todos" :key="todo.id">
 
                 <div class="mx-2">
-                  <input type="checkbox" name="" id="" class="form-check-input me-3">
+                  <input type="checkbox" name="" id="" class="form-check-input me-3"
+                  @click="todoStore.toggleComplete(todo.id)">
                   <span :class="todo.completed ? 'text-decoration-line-through' : ''">
                     {{ todo.title }}
                   </span>

@@ -51,9 +51,7 @@ export const useTodoStore = defineStore("todo", {
     },
 
     async updateTodo(id) {
-
       console.log(id);
-      
 
       const { data } = await axios.put(
         `https://jsonplaceholder.typicode.com/todos/${id}`,
@@ -67,6 +65,11 @@ export const useTodoStore = defineStore("todo", {
       this.todoForm.title = "";
       this.todoForm.userId = 1;
       this.todoForm.completed = false;
+    },
+
+    async toggleComplete(id) {
+      const todo = this.todos.find((todo) => todo.id === id);
+      todo.completed = !todo.completed;
     },
   },
   getters: {},
